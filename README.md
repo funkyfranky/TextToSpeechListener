@@ -36,6 +36,27 @@ This is an example how the send JSON data could look like:
 * `gender`: (Optional) Can be "male", "female" (default) or "neutral".
 * `volume`: (Optional) For Microsoft a value in [0,100] (default 100). For Google [-96, 10] as the volume gain in DB (default 0).
 
-## DCS Demo Mission
+## MOOSE
+The TTS listener can be easily used with the MOOSE framework to use text-to-speech from DCS.
+
+This is an simple demo script that you could run:
+```
+-- Set up a UDP socket using the default listener port 11042.
+local tts=SOCKET:New(11042)
+
+-- Default: Microsoft voice
+tts:SendTextToSpeech("Hello, I am the default Microsoft voice.")
+
+-- Use a specific Microsoft voice.
+tts:SendTextToSpeech("Hello, I am Hazel from Microsoft. Hope you have me installed.", nil, "Microsoft Hazel Desktop")
+
+-- Use any Google voice.
+tts:SendTextToSpeech("Hello, I am your default Google voice. If you have not set up Google correctly, I might fall back to a Microsoft voice though.", 1)
+
+-- Set a specific voice.
+tts:SendTextToSpeech("I am the standard C Google voice. I speak English with an american accent.", 1, "en-US-Standard-C")
+```
+
+### DCS Demo Mission
 
 To be announced.
