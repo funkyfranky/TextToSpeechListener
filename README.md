@@ -14,3 +14,24 @@ NOTE:
 * The TTS messages are played synchronously, *i.e.* they are played one after the other and do not overlap each other.
 
 ![image](https://user-images.githubusercontent.com/28947887/234686638-79272a70-aaff-426d-9d01-6252bf779a1b.png)
+
+## JSON
+This is an example how the send JSON data could look like:
+```json
+{
+    "command": "moose_text2speech",
+    "text": "This is the text that is converted to speech.",
+    "provider": 0,
+    "voice": "Microsoft David Desktop",
+    "culture": "en-US",
+    "gender": "male",
+    "volume": 100
+}
+```
+* `command`: This must be "moose_text2speech" for the listener to know that this received data was meant to be converted to speech.
+* `text`: This is the text that is converted to speech.
+* `provider`: 0=Microsoft (default), 1=Google TTS engine
+* `voice`: The explicit voice to use.
+* `culture`: (Optional) The languange code, *e.g.* "en-US", "en-GB", "de-DE", ...
+* `gender`: (Optional) Can be "male", "female" or "neutral".
+* `volume`: (Optional) For Microsoft a value in [0,100] (default 100). For Google [-96, 10] as the volume gain in DB (default 0).
