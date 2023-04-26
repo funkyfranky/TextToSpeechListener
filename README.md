@@ -35,3 +35,7 @@ This is an example how the send JSON data could look like:
 * `culture`: (Optional) The languange code, *e.g.* "en-US", "en-GB", "de-DE", ...
 * `gender`: (Optional) Can be "male", "female" or "neutral".
 * `volume`: (Optional) For Microsoft a value in [0,100] (default 100). For Google [-96, 10] as the volume gain in DB (default 0).
+
+## DCS Demo Mission
+
+To be announced.
