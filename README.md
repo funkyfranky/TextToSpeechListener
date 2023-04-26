@@ -31,9 +31,9 @@ This is an example how the send JSON data could look like:
 * `command`: This must be "moose_text2speech" for the listener to know that this received data was meant to be converted to speech.
 * `text`: This is the text that is converted to speech.
 * `provider`: 0=Microsoft (default), 1=Google TTS engine
-* `voice`: The explicit voice to use.
+* `voice`: (Optional) The explicit voice to use. If not set, other `culture` and/or `gender` are used to select the voice.
 * `culture`: (Optional) The languange code, *e.g.* "en-US", "en-GB", "de-DE", ...
-* `gender`: (Optional) Can be "male", "female" or "neutral".
+* `gender`: (Optional) Can be "male", "female" (default) or "neutral".
 * `volume`: (Optional) For Microsoft a value in [0,100] (default 100). For Google [-96, 10] as the volume gain in DB (default 0).
 
 ## DCS Demo Mission
