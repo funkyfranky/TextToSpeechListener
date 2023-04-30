@@ -15,26 +15,21 @@ NOTE:
 
 ![image](https://user-images.githubusercontent.com/28947887/234686638-79272a70-aaff-426d-9d01-6252bf779a1b.png)
 
-## JSON
-This is an example how the send JSON data could look like:
-```json
-{
-    "command": "moose_text2speech",
-    "text": "This is the text that is converted to speech.",
-    "provider": 0,
-    "voice": "Microsoft David Desktop",
-    "culture": "en-US",
-    "gender": "male",
-    "volume": 100
-}
-```
-* `command`: This must be "moose_text2speech" for the listener to know that this received data was meant to be converted to speech.
-* `text`: This is the text that is converted to speech.
-* `provider`: 0=Microsoft (default), 1=Google TTS engine
-* `voice`: (Optional) The explicit voice to use. If not set, other `culture` and/or `gender` are used to select the voice.
-* `culture`: (Optional) The languange code, *e.g.* "en-US", "en-GB", "de-DE", ...
-* `gender`: (Optional) Can be "male", "female" (default) or "neutral".
-* `volume`: (Optional) For Microsoft a value in [0,100] (default 100). For Google [-96, 10] as the volume gain in DB (default 0).
+## Download and Installation
+Download the executable from the releases section here on github.
+
+There is no installation required. Just run the `.exe` file. It is rather large because it should contain all necessary dependencies.
+
+### Google Engine
+In order to use the Google text-to-speech engine you first need to set it up correctly. See https://cloud.google.com/text-to-speech
+
+Once you have a google credentials file, you have to store it as an Windows evironment variable.
+Go to `System Properties` --> `Advanced` Tab --> `Environment Variables` --> `New`
+and add a new variable named `GOOGLE_APPLICATION_CREDENTIALS`, which has as value the full path to your credentials file.
+
+![Sysprop_GoogleTTS](https://user-images.githubusercontent.com/28947887/235353363-2628270d-f1cf-47c5-a73b-fca70f5cfd10.png)
+
+If the google engine is not available, the program will fall back to the Microsoft engine.
 
 ## MOOSE
 The TTS listener can be easily used with the MOOSE framework to use text-to-speech from DCS.
@@ -59,4 +54,26 @@ tts:SendTextToSpeech("I am the standard C Google voice. I speak English with an 
 
 ### DCS Demo Mission
 
-To be announced.
+A demo mission can be found as part of the release package.
+
+## JSON
+This is an example how the send JSON data could look like:
+```json
+{
+    "command": "moose_text2speech",
+    "text": "This is the text that is converted to speech.",
+    "provider": 0,
+    "voice": "Microsoft David Desktop",
+    "culture": "en-US",
+    "gender": "male",
+    "volume": 100
+}
+```
+* `command`: This must be "moose_text2speech" for the listener to know that this received data was meant to be converted to speech.
+* `text`: This is the text that is converted to speech.
+* `provider`: 0=Microsoft (default), 1=Google TTS engine
+* `voice`: (Optional) The explicit voice to use. If not set, other `culture` and/or `gender` are used to select the voice.
+* `culture`: (Optional) The languange code, *e.g.* "en-US", "en-GB", "de-DE", ...
+* `gender`: (Optional) Can be "male", "female" (default) or "neutral".
+* `volume`: (Optional) For Microsoft a value in [0,100] (default 100). For Google [-96, 10] as the volume gain in DB (default 0).
+
