@@ -2,10 +2,25 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageIcon>Funkyfranky_Coat_Of_Arms_80.png</PackageIcon>
+    <ApplicationIcon>Funkyfranky_Coat_Of_Arms_100dpi.ico</ApplicationIcon>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Funkyfranky_Coat_Of_Arms_100dpi.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\frank\Pictures\Coat of Arms\Funkyfranky_Coat_Of_Arms_80.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Google.Cloud.TextToSpeech.V1Beta1" Version="2.0.0-beta03" />

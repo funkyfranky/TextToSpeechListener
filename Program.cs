@@ -139,8 +139,8 @@ namespace TextToSpeekListener
                     Console.Write("Waiting for broadcast...");
                     byte[] bytes = listener.Receive(ref groupEP);
 
-                    // Get message as text
-                    string? jsonString = Encoding.ASCII.GetString(bytes, 0, bytes.Length);
+                    // Get message as text (we assume UTF8 instead of ASCII encoding, which works better for special characters)
+                    string? jsonString = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
 
                     // Check if this comes from MOOSE (string is hard coded as SOCKET.DataType.TTS="moose_text2speech")
                     bool isMoose = jsonString.Contains("moose_text2speech");
