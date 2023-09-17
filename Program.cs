@@ -116,10 +116,13 @@ namespace TextToSpeekListener
             }
         }
 
-        private static void StartListener(int listenPort = 11042, bool googleAvail = false)
+        private static void StartListener(int listenPort = 11042, string listenHost= "127.0.0.1", bool googleAvail = false)
         {
+
+            IPAddress ipaddress = IPAddress.Parse("127.0.0.1");
             UdpClient listener = new(listenPort);
-            IPEndPoint groupEP = new(IPAddress.Any, listenPort);
+            //IPEndPoint groupEP = new(IPAddress.Any, listenPort);
+            IPEndPoint groupEP = new(ipaddress, listenPort);
 
 
             Console.WriteLine();
@@ -385,8 +388,12 @@ namespace TextToSpeekListener
                 listenPort = Int16.Parse(port);
             }
 
+            Console.Write("Listen on host (hit enter for default \"127.0.0.1\"): ");
+            string? host = Console.ReadLine();
+
+
             // Start UDP listener
-            StartListener(listenPort, googleAvail);
+            StartListener(listenPort, host, googleAvail);
         }
     }
 }
